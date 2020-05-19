@@ -1,0 +1,2162 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>
+    Apple旗艦館說明文件2 - HackMD
+  </title>
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/ionicons.min.css" />
+  <link rel="stylesheet" href="css/octicons.min.css" />
+  <link rel="stylesheet" href="css/prism.min.css" />
+  <link rel="stylesheet" href="css/emojify.min.css" />
+  <style>
+    @charset "UTF-8";
+    /* @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext); */
+
+    .hljs {
+      display: block;
+      background: #fff;
+      padding: .5em;
+      color: #333;
+      overflow-x: auto
+    }
+
+    .hljs-comment,
+    .hljs-meta {
+      color: #969896
+    }
+
+    .hljs-emphasis,
+    .hljs-quote,
+    .hljs-string,
+    .hljs-strong,
+    .hljs-template-variable,
+    .hljs-variable {
+      color: #df5000
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag,
+    .hljs-type {
+      color: #a71d5d
+    }
+
+    .hljs-attribute,
+    .hljs-bullet,
+    .hljs-literal,
+    .hljs-number,
+    .hljs-symbol {
+      color: #0086b3
+    }
+
+    .hljs-built_in,
+    .hljs-builtin-name {
+      color: #005cc5
+    }
+
+    .hljs-name,
+    .hljs-section {
+      color: #63a35c
+    }
+
+    .hljs-tag {
+      color: #333
+    }
+
+    .hljs-attr,
+    .hljs-selector-attr,
+    .hljs-selector-class,
+    .hljs-selector-id,
+    .hljs-selector-pseudo,
+    .hljs-title {
+      color: #795da3
+    }
+
+    .hljs-addition {
+      color: #55a532;
+      background-color: #eaffea
+    }
+
+    .hljs-deletion {
+      color: #bd2c00;
+      background-color: #ffecec
+    }
+
+    .hljs-link {
+      text-decoration: underline
+    }
+
+    .markdown-body {
+      font-size: 16px;
+      line-height: 1.5;
+      word-wrap: break-word
+    }
+
+    .markdown-body:after,
+    .markdown-body:before {
+      display: table;
+      content: ""
+    }
+
+    .markdown-body:after {
+      clear: both
+    }
+
+    .markdown-body>:first-child {
+      margin-top: 0 !important
+    }
+
+    .markdown-body>:last-child {
+      margin-bottom: 0 !important
+    }
+
+    .markdown-body a:not([href]) {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .markdown-body .absent {
+      color: #c00
+    }
+
+    .markdown-body .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+      line-height: 1
+    }
+
+    .markdown-body .anchor:focus {
+      outline: none
+    }
+
+    .markdown-body blockquote,
+    .markdown-body dl,
+    .markdown-body ol,
+    .markdown-body p,
+    .markdown-body pre,
+    .markdown-body table,
+    .markdown-body ul {
+      margin-top: 0;
+      margin-bottom: 16px
+    }
+
+    .markdown-body hr {
+      height: .25em;
+      padding: 0;
+      margin: 24px 0;
+      background-color: #e7e7e7;
+      border: 0
+    }
+
+    .markdown-body blockquote {
+      font-size: 16px;
+      padding: 0 1em;
+      color: #777;
+      border-left: .25em solid #ddd
+    }
+
+    .markdown-body blockquote>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-body blockquote>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-body kbd,
+    .popover kbd {
+      display: inline-block;
+      padding: 3px 5px;
+      font-size: 11px;
+      line-height: 10px;
+      color: #555;
+      vertical-align: middle;
+      background-color: #fcfcfc;
+      border: 1px solid #ccc;
+      border-bottom-color: #bbb;
+      border-radius: 3px;
+      box-shadow: inset 0 -1px 0 #bbb
+    }
+
+    .markdown-body .loweralpha {
+      list-style-type: lower-alpha
+    }
+
+    .markdown-body h1,
+    .markdown-body h2,
+    .markdown-body h3,
+    .markdown-body h4,
+    .markdown-body h5,
+    .markdown-body h6 {
+      margin-top: 24px;
+      margin-bottom: 16px;
+      font-weight: 600;
+      line-height: 1.25
+    }
+
+    .markdown-body h1 .octicon-link,
+    .markdown-body h2 .octicon-link,
+    .markdown-body h3 .octicon-link,
+    .markdown-body h4 .octicon-link,
+    .markdown-body h5 .octicon-link,
+    .markdown-body h6 .octicon-link {
+      color: #000;
+      vertical-align: middle;
+      visibility: hidden
+    }
+
+    .markdown-body h1:hover .anchor,
+    .markdown-body h2:hover .anchor,
+    .markdown-body h3:hover .anchor,
+    .markdown-body h4:hover .anchor,
+    .markdown-body h5:hover .anchor,
+    .markdown-body h6:hover .anchor {
+      text-decoration: none
+    }
+
+    .markdown-body h1:hover .anchor .octicon-link,
+    .markdown-body h2:hover .anchor .octicon-link,
+    .markdown-body h3:hover .anchor .octicon-link,
+    .markdown-body h4:hover .anchor .octicon-link,
+    .markdown-body h5:hover .anchor .octicon-link,
+    .markdown-body h6:hover .anchor .octicon-link {
+      visibility: visible
+    }
+
+    .markdown-body h1 code,
+    .markdown-body h1 tt,
+    .markdown-body h2 code,
+    .markdown-body h2 tt,
+    .markdown-body h3 code,
+    .markdown-body h3 tt,
+    .markdown-body h4 code,
+    .markdown-body h4 tt,
+    .markdown-body h5 code,
+    .markdown-body h5 tt,
+    .markdown-body h6 code,
+    .markdown-body h6 tt {
+      font-size: inherit
+    }
+
+    .markdown-body h1 {
+      font-size: 2em
+    }
+
+    .markdown-body h1,
+    .markdown-body h2 {
+      padding-bottom: .3em;
+      border-bottom: 1px solid #eee
+    }
+
+    .markdown-body h2 {
+      font-size: 1.5em
+    }
+
+    .markdown-body h3 {
+      font-size: 1.25em
+    }
+
+    .markdown-body h4 {
+      font-size: 1em
+    }
+
+    .markdown-body h5 {
+      font-size: .875em
+    }
+
+    .markdown-body h6 {
+      font-size: .85em;
+      color: #777
+    }
+
+    .markdown-body ol,
+    .markdown-body ul {
+      padding-left: 2em
+    }
+
+    .markdown-body ol.no-list,
+    .markdown-body ul.no-list {
+      padding: 0;
+      list-style-type: none
+    }
+
+    .markdown-body ol ol,
+    .markdown-body ol ul,
+    .markdown-body ul ol,
+    .markdown-body ul ul {
+      margin-top: 0;
+      margin-bottom: 0
+    }
+
+    .markdown-body li>p {
+      margin-top: 16px
+    }
+
+    .markdown-body li+li {
+      padding-top: .25em
+    }
+
+    .markdown-body dl {
+      padding: 0
+    }
+
+    .markdown-body dl dt {
+      padding: 0;
+      margin-top: 16px;
+      font-size: 1em;
+      font-style: italic;
+      font-weight: 700
+    }
+
+    .markdown-body dl dd {
+      padding: 0 16px;
+      margin-bottom: 16px
+    }
+
+    .markdown-body table {
+      display: block;
+      width: 100%;
+      overflow: auto;
+      word-break: normal;
+      word-break: keep-all
+    }
+
+    .markdown-body table th {
+      font-weight: 700
+    }
+
+    .markdown-body table td,
+    .markdown-body table th {
+      padding: 6px 13px;
+      border: 1px solid #ddd
+    }
+
+    .markdown-body table tr {
+      background-color: #fff;
+      border-top: 1px solid #ccc
+    }
+
+    .markdown-body table tr:nth-child(2n) {
+      background-color: #f8f8f8
+    }
+
+    .markdown-body img {
+      max-width: 100%;
+      box-sizing: content-box;
+      background-color: #fff
+    }
+
+    .markdown-body img[align=right] {
+      padding-left: 20px
+    }
+
+    .markdown-body img[align=left] {
+      padding-right: 20px
+    }
+
+    .markdown-body .emoji {
+      max-width: none;
+      vertical-align: text-top;
+      background-color: transparent
+    }
+
+    .markdown-body span.frame {
+      display: block;
+      overflow: hidden
+    }
+
+    .markdown-body span.frame>span {
+      display: block;
+      float: left;
+      width: auto;
+      padding: 7px;
+      margin: 13px 0 0;
+      overflow: hidden;
+      border: 1px solid #ddd
+    }
+
+    .markdown-body span.frame span img {
+      display: block;
+      float: left
+    }
+
+    .markdown-body span.frame span span {
+      display: block;
+      padding: 5px 0 0;
+      clear: both;
+      color: #333
+    }
+
+    .markdown-body span.align-center {
+      display: block;
+      overflow: hidden;
+      clear: both
+    }
+
+    .markdown-body span.align-center>span {
+      display: block;
+      margin: 13px auto 0;
+      overflow: hidden;
+      text-align: center
+    }
+
+    .markdown-body span.align-center span img {
+      margin: 0 auto;
+      text-align: center
+    }
+
+    .markdown-body span.align-right {
+      display: block;
+      overflow: hidden;
+      clear: both
+    }
+
+    .markdown-body span.align-right>span {
+      display: block;
+      margin: 13px 0 0;
+      overflow: hidden;
+      text-align: right
+    }
+
+    .markdown-body span.align-right span img {
+      margin: 0;
+      text-align: right
+    }
+
+    .markdown-body span.float-left {
+      display: block;
+      float: left;
+      margin-right: 13px;
+      overflow: hidden
+    }
+
+    .markdown-body span.float-left span {
+      margin: 13px 0 0
+    }
+
+    .markdown-body span.float-right {
+      display: block;
+      float: right;
+      margin-left: 13px;
+      overflow: hidden
+    }
+
+    .markdown-body span.float-right>span {
+      display: block;
+      margin: 13px auto 0;
+      overflow: hidden;
+      text-align: right
+    }
+
+    .markdown-body code,
+    .markdown-body tt {
+      padding: 0;
+      padding-top: .2em;
+      padding-bottom: .2em;
+      margin: 0;
+      font-size: 85%;
+      background-color: rgba(0, 0, 0, .04);
+      border-radius: 3px
+    }
+
+    .markdown-body code:after,
+    .markdown-body code:before,
+    .markdown-body tt:after,
+    .markdown-body tt:before {
+      letter-spacing: -.2em;
+      content: "\00a0"
+    }
+
+    .markdown-body code br,
+    .markdown-body tt br {
+      display: none
+    }
+
+    .markdown-body del code {
+      text-decoration: inherit
+    }
+
+    .markdown-body pre {
+      word-wrap: normal
+    }
+
+    .markdown-body pre>code {
+      padding: 0;
+      margin: 0;
+      font-size: 100%;
+      word-break: normal;
+      white-space: pre;
+      background: transparent;
+      border: 0
+    }
+
+    .markdown-body .highlight {
+      margin-bottom: 16px
+    }
+
+    .markdown-body .highlight pre {
+      margin-bottom: 0;
+      word-break: normal
+    }
+
+    .markdown-body .highlight pre,
+    .markdown-body pre {
+      padding: 16px;
+      overflow: auto;
+      font-size: 85%;
+      line-height: 1.45;
+      background-color: #f7f7f7;
+      border-radius: 3px
+    }
+
+    .markdown-body pre code,
+    .markdown-body pre tt {
+      display: inline;
+      max-width: auto;
+      padding: 0;
+      margin: 0;
+      overflow: visible;
+      line-height: inherit;
+      word-wrap: normal;
+      background-color: transparent;
+      border: 0
+    }
+
+    .markdown-body pre code:after,
+    .markdown-body pre code:before,
+    .markdown-body pre tt:after,
+    .markdown-body pre tt:before {
+      content: normal
+    }
+
+    .markdown-body .csv-data td,
+    .markdown-body .csv-data th {
+      padding: 5px;
+      overflow: hidden;
+      font-size: 12px;
+      line-height: 1;
+      text-align: left;
+      white-space: nowrap
+    }
+
+    .markdown-body .csv-data .blob-line-num {
+      padding: 10px 8px 9px;
+      text-align: right;
+      background: #fff;
+      border: 0
+    }
+
+    .markdown-body .csv-data tr {
+      border-top: 0
+    }
+
+    .markdown-body .csv-data th {
+      font-weight: 700;
+      background: #f8f8f8;
+      border-top: 0
+    }
+
+    .news .alert .markdown-body blockquote {
+      padding: 0 0 0 40px;
+      border: 0 none
+    }
+
+    .activity-tab .news .alert .commits,
+    .activity-tab .news .markdown-body blockquote {
+      padding-left: 0
+    }
+
+    .task-list-item {
+      list-style-type: none
+    }
+
+    .task-list-item label {
+      font-weight: 400
+    }
+
+    .task-list-item.enabled label {
+      cursor: pointer
+    }
+
+    .task-list-item+.task-list-item {
+      margin-top: 3px
+    }
+
+    .task-list-item-checkbox {
+      float: left;
+      margin: .31em 0 .2em -1.3em !important;
+      vertical-align: middle;
+      cursor: default !important
+    }
+
+    .markdown-body {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      max-width: 1000px;
+      overflow: visible !important
+    }
+
+    .markdown-body .emoji {
+      vertical-align: top
+    }
+
+    .markdown-body pre {
+      border: inherit !important
+    }
+
+    .markdown-body code {
+      color: inherit !important
+    }
+
+    .markdown-body pre code .wrapper {
+      display: -moz-inline-flex;
+      display: -ms-inline-flex;
+      display: -o-inline-flex;
+      display: inline-flex
+    }
+
+    .markdown-body pre code .gutter {
+      float: left;
+      overflow: hidden;
+      -webkit-user-select: none;
+      user-select: none
+    }
+
+    .markdown-body pre code .gutter.linenumber {
+      text-align: right;
+      position: relative;
+      display: inline-block;
+      cursor: default;
+      z-index: 4;
+      padding: 0 8px 0 0;
+      min-width: 20px;
+      box-sizing: content-box;
+      color: #afafaf !important;
+      border-right: 3px solid #6ce26c !important
+    }
+
+    .markdown-body pre code .gutter.linenumber>span:before {
+      content: attr(data-linenumber)
+    }
+
+    .markdown-body pre code .code {
+      float: left;
+      margin: 0 0 0 16px
+    }
+
+    .markdown-body .gist .line-numbers {
+      border-left: none;
+      border-top: none;
+      border-bottom: none
+    }
+
+    .markdown-body .gist .line-data {
+      border: none
+    }
+
+    .markdown-body .gist table {
+      border-spacing: 0;
+      border-collapse: inherit !important
+    }
+
+    .markdown-body code[data-gist-id] {
+      background: none;
+      padding: 0
+    }
+
+    .markdown-body code[data-gist-id]:after,
+    .markdown-body code[data-gist-id]:before {
+      content: ""
+    }
+
+    .markdown-body code[data-gist-id] .blob-num {
+      border: unset
+    }
+
+    .markdown-body code[data-gist-id] table {
+      overflow: unset;
+      margin-bottom: unset
+    }
+
+    .markdown-body code[data-gist-id] table tr {
+      background: unset
+    }
+
+    .markdown-body[dir=rtl] pre {
+      direction: ltr
+    }
+
+    .markdown-body[dir=rtl] code {
+      direction: ltr;
+      unicode-bidi: embed
+    }
+
+    .markdown-body .alert>p {
+      margin-bottom: 0
+    }
+
+    .markdown-body pre.abc,
+    .markdown-body pre.flow-chart,
+    .markdown-body pre.graphviz,
+    .markdown-body pre.mermaid,
+    .markdown-body pre.sequence-diagram,
+    .markdown-body pre.vega {
+      text-align: center;
+      background-color: inherit;
+      border-radius: 0;
+      white-space: inherit;
+      overflow: visible
+    }
+
+    .markdown-body pre.abc>code,
+    .markdown-body pre.flow-chart>code,
+    .markdown-body pre.graphviz>code,
+    .markdown-body pre.mermaid>code,
+    .markdown-body pre.sequence-diagram>code,
+    .markdown-body pre.vega>code {
+      text-align: left
+    }
+
+    .markdown-body pre.abc>svg,
+    .markdown-body pre.flow-chart>svg,
+    .markdown-body pre.graphviz>svg,
+    .markdown-body pre.mermaid>svg,
+    .markdown-body pre.sequence-diagram>svg,
+    .markdown-body pre.vega>svg {
+      max-width: 100%;
+      height: 100%
+    }
+
+    .markdown-body pre>code.wrap {
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-wrap: break-word
+    }
+
+    .markdown-body .alert>p,
+    .markdown-body .alert>ul {
+      margin-bottom: 0
+    }
+
+    .markdown-body summary {
+      display: list-item
+    }
+
+    .markdown-body summary:focus {
+      outline: none
+    }
+
+    .markdown-body details summary {
+      cursor: pointer
+    }
+
+    .markdown-body details:not([open])>:not(summary) {
+      display: none
+    }
+
+    .markdown-body figure {
+      margin: 1em 40px
+    }
+
+    .markdown-body .mark,
+    .markdown-body mark {
+      background-color: #fff1a7
+    }
+
+    .vimeo,
+    .youtube {
+      cursor: pointer;
+      display: table;
+      text-align: center;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: #000;
+      overflow: hidden
+    }
+
+    .vimeo,
+    .youtube {
+      position: relative;
+      width: 100%
+    }
+
+    .youtube {
+      padding-bottom: 56.25%
+    }
+
+    .vimeo img {
+      width: 100%;
+      object-fit: contain;
+      z-index: 0
+    }
+
+    .youtube img {
+      object-fit: cover;
+      z-index: 0
+    }
+
+    .vimeo iframe,
+    .youtube iframe,
+    .youtube img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0
+    }
+
+    .vimeo iframe,
+    .youtube iframe {
+      vertical-align: middle;
+      z-index: 1
+    }
+
+    .vimeo .icon,
+    .youtube .icon {
+      position: absolute;
+      height: auto;
+      width: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      opacity: .3;
+      transition: opacity .2s;
+      z-index: 0
+    }
+
+    .vimeo:hover .icon,
+    .youtube:hover .icon {
+      opacity: .6;
+      transition: opacity .2s
+    }
+
+    .slideshare .inner,
+    .speakerdeck .inner {
+      position: relative;
+      width: 100%
+    }
+
+    .slideshare .inner iframe,
+    .speakerdeck .inner iframe {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%
+    }
+
+    .MJX_Assistive_MathML {
+      display: none
+    }
+
+    .ui-infobar {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      margin: 25px auto -25px;
+      padding: 0 15px;
+      color: #777
+    }
+
+    .toc .invisable-node {
+      list-style-type: none
+    }
+
+    .ui-toc {
+      position: fixed;
+      bottom: 20px;
+      z-index: 998
+    }
+
+    .ui-toc-label {
+      opacity: .3;
+      background-color: #ccc;
+      border: none;
+      transition: opacity .2s
+    }
+
+    .ui-toc .open .ui-toc-label {
+      opacity: 1;
+      color: #fff;
+      transition: opacity .2s
+    }
+
+    .ui-toc-label:focus {
+      opacity: .3;
+      background-color: #ccc;
+      color: #000
+    }
+
+    .ui-toc-label:hover {
+      opacity: 1;
+      background-color: #ccc;
+      transition: opacity .2s
+    }
+
+    .ui-toc-dropdown {
+      margin-top: 23px;
+      margin-bottom: 20px;
+      padding-left: 10px;
+      padding-right: 10px;
+      max-width: 45vw;
+      width: 25vw;
+      max-height: 70vh;
+      overflow: auto;
+      text-align: inherit
+    }
+
+    .ui-toc-dropdown>.toc {
+      max-height: calc(70vh - 100px);
+      overflow: auto
+    }
+
+    .ui-toc-dropdown[dir=rtl] .nav {
+      padding-right: 0;
+      letter-spacing: .0029em
+    }
+
+    .ui-toc-dropdown a {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: pre
+    }
+
+    .ui-toc-dropdown .nav>li>a {
+      display: block;
+      padding: 4px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #767676
+    }
+
+    .ui-toc-dropdown .nav>li:first-child:last-child>ul,
+    .ui-toc-dropdown .toc.expand ul {
+      display: block
+    }
+
+    .ui-toc-dropdown .nav>li>a:focus,
+    .ui-toc-dropdown .nav>li>a:hover {
+      padding-left: 19px;
+      color: #000;
+      text-decoration: none;
+      background-color: transparent;
+      border-left: 1px solid #000
+    }
+
+    .ui-toc-dropdown[dir=rtl] .nav>li>a:focus,
+    .ui-toc-dropdown[dir=rtl] .nav>li>a:hover {
+      padding-right: 19px;
+      border-left: none;
+      border-right: 1px solid #000
+    }
+
+    .ui-toc-dropdown .nav>.active:focus>a,
+    .ui-toc-dropdown .nav>.active:hover>a,
+    .ui-toc-dropdown .nav>.active>a {
+      padding-left: 18px;
+      font-weight: 700;
+      color: #000;
+      background-color: transparent;
+      border-left: 2px solid #000
+    }
+
+    .ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,
+    .ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,
+    .ui-toc-dropdown[dir=rtl] .nav>.active>a {
+      padding-right: 18px;
+      border-left: none;
+      border-right: 2px solid #000
+    }
+
+    .ui-toc-dropdown .nav .nav {
+      display: none;
+      padding-bottom: 10px
+    }
+
+    .ui-toc-dropdown .nav>.active>ul {
+      display: block
+    }
+
+    .ui-toc-dropdown .nav .nav>li>a {
+      padding-top: 1px;
+      padding-bottom: 1px;
+      padding-left: 30px;
+      font-size: 12px;
+      font-weight: 400
+    }
+
+    .ui-toc-dropdown[dir=rtl] .nav .nav>li>a {
+      padding-right: 30px
+    }
+
+    .ui-toc-dropdown .nav .nav>li>ul>li>a {
+      padding-top: 1px;
+      padding-bottom: 1px;
+      padding-left: 40px;
+      font-size: 12px;
+      font-weight: 400
+    }
+
+    .ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a {
+      padding-right: 40px
+    }
+
+    .ui-toc-dropdown .nav .nav>li>a:focus,
+    .ui-toc-dropdown .nav .nav>li>a:hover {
+      padding-left: 29px
+    }
+
+    .ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,
+    .ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover {
+      padding-right: 29px
+    }
+
+    .ui-toc-dropdown .nav .nav>li>ul>li>a:focus,
+    .ui-toc-dropdown .nav .nav>li>ul>li>a:hover {
+      padding-left: 39px
+    }
+
+    .ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,
+    .ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover {
+      padding-right: 39px
+    }
+
+    .ui-toc-dropdown .nav .nav>.active:focus>a,
+    .ui-toc-dropdown .nav .nav>.active:hover>a,
+    .ui-toc-dropdown .nav .nav>.active>a {
+      padding-left: 28px;
+      font-weight: 500
+    }
+
+    .ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,
+    .ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,
+    .ui-toc-dropdown[dir=rtl] .nav .nav>.active>a {
+      padding-right: 28px
+    }
+
+    .ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,
+    .ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,
+    .ui-toc-dropdown .nav .nav>.active>.nav>.active>a {
+      padding-left: 38px;
+      font-weight: 500
+    }
+
+    .ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,
+    .ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,
+    .ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a {
+      padding-right: 38px
+    }
+
+    .markdown-body {
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif
+    }
+
+    html[lang^=ja] .markdown-body {
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Helvetica, Roboto, Arial, Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3, Osaka, Meiryo, メイリオ, MS Gothic, ＭＳ\ ゴシック, sans-serif
+    }
+
+    html[lang=zh-tw] .markdown-body {
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Helvetica, Roboto, Arial, PingFang TC, Microsoft JhengHei, 微軟正黑, sans-serif
+    }
+
+    html[lang=zh-cn] .markdown-body {
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Helvetica, Roboto, Arial, PingFang SC, Microsoft YaHei, 微软雅黑, sans-serif
+    }
+
+    html .markdown-body[lang^=ja] {
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Helvetica, Roboto, Arial, Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3, Osaka, Meiryo, メイリオ, MS Gothic, ＭＳ\ ゴシック, sans-serif
+    }
+
+    html .markdown-body[lang=zh-tw] {
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Helvetica, Roboto, Arial, PingFang TC, Microsoft JhengHei, 微軟正黑, sans-serif
+    }
+
+    html .markdown-body[lang=zh-cn] {
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Helvetica, Roboto, Arial, PingFang SC, Microsoft YaHei, 微软雅黑, sans-serif
+    }
+
+    html[lang^=ja] .ui-toc-dropdown {
+      font-family: Source Sans Pro, Helvetica, Arial, Meiryo UI, MS PGothic, ＭＳ\ Ｐゴシック, sans-serif
+    }
+
+    html[lang=zh-tw] .ui-toc-dropdown {
+      font-family: Source Sans Pro, Helvetica, Arial, Microsoft JhengHei UI, 微軟正黑UI, sans-serif
+    }
+
+    html[lang=zh-cn] .ui-toc-dropdown {
+      font-family: Source Sans Pro, Helvetica, Arial, Microsoft YaHei UI, 微软雅黑UI, sans-serif
+    }
+
+    html .ui-toc-dropdown[lang^=ja] {
+      font-family: Source Sans Pro, Helvetica, Arial, Meiryo UI, MS PGothic, ＭＳ\ Ｐゴシック, sans-serif
+    }
+
+    html .ui-toc-dropdown[lang=zh-tw] {
+      font-family: Source Sans Pro, Helvetica, Arial, Microsoft JhengHei UI, 微軟正黑UI, sans-serif
+    }
+
+    html .ui-toc-dropdown[lang=zh-cn] {
+      font-family: Source Sans Pro, Helvetica, Arial, Microsoft YaHei UI, 微软雅黑UI, sans-serif
+    }
+
+    .ui-affix-toc {
+      position: fixed;
+      top: 0;
+      max-width: 15vw;
+      max-height: 70vh;
+      overflow: auto
+    }
+
+    .back-to-top,
+    .expand-toggle,
+    .go-to-bottom {
+      display: block;
+      padding: 4px 10px;
+      margin-top: 10px;
+      margin-left: 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #999
+    }
+
+    .back-to-top:focus,
+    .back-to-top:hover,
+    .expand-toggle:focus,
+    .expand-toggle:hover,
+    .go-to-bottom:focus,
+    .go-to-bottom:hover {
+      color: #563d7c;
+      text-decoration: none
+    }
+
+    .back-to-top,
+    .go-to-bottom {
+      margin-top: 0
+    }
+
+    .ui-user-icon {
+      width: 20px;
+      height: 20px;
+      display: block;
+      border-radius: 3px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      margin-right: 5px;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: cover
+    }
+
+    .ui-user-icon.small {
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 0 .2em
+    }
+
+    .ui-infobar>small>span {
+      line-height: 22px
+    }
+
+    .ui-infobar>small .dropdown {
+      display: inline-block
+    }
+
+    .ui-infobar>small .dropdown a:focus,
+    .ui-infobar>small .dropdown a:hover {
+      text-decoration: none
+    }
+
+    .ui-published-note {
+      color: #337ab7
+    }
+
+    .ui-published-note .fa {
+      font-size: 20px;
+      vertical-align: top
+    }
+
+    .unselectable {
+      -webkit-user-select: none;
+      -o-user-select: none;
+      user-select: none
+    }
+
+    @media print {
+
+      blockquote,
+      div,
+      img,
+      pre,
+      table {
+        page-break-inside: avoid !important
+      }
+
+      a[href]:after {
+        font-size: 12px !important
+      }
+    }
+
+    .markdown-body.slides {
+      position: relative;
+      z-index: 1;
+      color: #222
+    }
+
+    .markdown-body.slides:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      background-color: currentColor;
+      box-shadow: 0 0 0 50vw
+    }
+
+    .markdown-body.slides section[data-markdown] {
+      position: relative;
+      margin-bottom: 1.5em;
+      background-color: #fff;
+      text-align: center
+    }
+
+    .markdown-body.slides section[data-markdown] code {
+      text-align: left
+    }
+
+    .markdown-body.slides section[data-markdown]:before {
+      content: "";
+      display: block;
+      padding-bottom: 56.23%
+    }
+
+    .markdown-body.slides section[data-markdown]>div:first-child {
+      position: absolute;
+      top: 50%;
+      left: 1em;
+      right: 1em;
+      transform: translateY(-50%);
+      max-height: 100%;
+      overflow: hidden
+    }
+
+    .markdown-body.slides section[data-markdown]>ul {
+      display: inline-block
+    }
+
+    .markdown-body.slides>section>section+section:after {
+      content: "";
+      position: absolute;
+      top: -1.5em;
+      right: 1em;
+      height: 1.5em;
+      border: 3px solid #777
+    }
+
+    body {
+      font-smoothing: subpixel-antialiased !important;
+      -webkit-font-smoothing: subpixel-antialiased !important;
+      -moz-osx-font-smoothing: auto !important;
+      text-shadow: 0 0 1em transparent, 1px 1px 1.2px rgba(0, 0, 0, .004);
+      -webkit-overflow-scrolling: touch;
+      letter-spacing: .025em
+    }
+
+    .focus,
+    :focus {
+      outline: none !important
+    }
+
+    ::-moz-focus-inner {
+      border: 0 !important
+    }
+
+    body {
+      font-family: Source Sans Pro, Helvetica, Arial, sans-serif
+    }
+
+    html[lang^=ja] body {
+      font-family: Source Sans Pro, Helvetica, Arial, Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3, Osaka, Meiryo, メイリオ, MS Gothic, ＭＳ\ ゴシック, sans-serif
+    }
+
+    html[lang=zh-tw] body {
+      font-family: Source Sans Pro, Helvetica, Arial, PingFang TC, Microsoft JhengHei, 微軟正黑, sans-serif
+    }
+
+    html[lang=zh-cn] body {
+      font-family: Source Sans Pro, Helvetica, Arial, PingFang SC, Microsoft YaHei, 微软雅黑, sans-serif
+    }
+
+    abbr[title] {
+      border-bottom: none;
+      text-decoration: underline;
+      -webkit-text-decoration: underline dotted;
+      text-decoration: underline dotted
+    }
+
+    abbr[data-original-title],
+    abbr[title] {
+      cursor: help
+    }
+
+    body.modal-open {
+      overflow-y: auto;
+      padding-right: 0 !important
+    }
+  </style>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true" fgid="3041">
+    <style>
+      html[lang="zh-tw"] .markdown-body {
+        max-width: 1000px
+      }
+    </style>
+    <h1 id="Apple旗艦館說明文件2" fgid="18082"><a class="anchor hidden-xs" href="#Apple旗艦館說明文件2" title="Apple旗艦館說明文件2" fgid="18088"><span class="octicon octicon-link" fgid="18094"></span></a>Apple旗艦館說明文件2</h1>
+    <h2 id="1架構" fgid="18062"><a class="anchor hidden-xs" href="#1架構" title="1架構" fgid="18068"><span class="octicon octicon-link" fgid="18074"></span></a>1.架構</h2>
+    <p fgid="18050"><a target="_blank" href="img/appleworld.png"><img src="img/appleworld.png" alt="" fgid="18056"></a></p>
+    <h2 id="2GA分布" fgid="18030"><a class="anchor hidden-xs" href="#2GA分布" title="2GA分布" fgid="18036"><span class="octicon octicon-link" fgid="18042"></span></a>2.GA分布</h2>
+    <p fgid="18008">每次點擊會送出事件參數有兩個，<mark fgid="18015">所在區塊</mark>及<mark fgid="18023">目前張數</mark></p>
+    <h3 id="命名規則非選單" fgid="17988"><a class="anchor hidden-xs" href="#命名規則非選單" title="命名規則非選單" fgid="17994"><span class="octicon octicon-link" fgid="18000"></span></a>命名規則(非選單)</h3>
+    <p fgid="17965">以點擊下圖A區塊輪播的第一張為例，送出的GA為[ A_2, a_1 ]，其中第一個參數<strong fgid="17972">A_2</strong>代表所在區塊+總張數(2)，第二個小寫參數<strong fgid="17980">a_1</strong>代表所點擊到的張數;若點擊的是C區塊的第三張，則會送出[C_4, c_3]</p>
+    <h3 id="命名規則選單" fgid="17945"><a class="anchor hidden-xs" href="#命名規則選單" title="命名規則選單" fgid="17951"><span class="octicon octicon-link" fgid="17957"></span></a>命名規則(選單)</h3>
+    <ol fgid="17910">
+      <li fgid="17916">選單的第一參數為 <strong fgid="17923">L_1~8</strong>，如iPad為L_3，無第二參數(統一送出"tab")，<br fgid="17931">
+        所以結果為 [ L_3 , ‘tab’ ]</li>
+      <li fgid="17938">選單內banner，第一參數為所屬的選單，第二參數為目前點擊張數，如點擊Watch內第二張banner，會送出[ L_4 , l_2 ]</li>
+    </ol>
+    <blockquote fgid="17897">
+      <p fgid="17903">送出的數字會由程式計算，不需手動添加</p>
+    </blockquote>
+    <p fgid="17885"><img src="https://i.imgur.com/B92Ec06.jpg" alt="" fgid="17891"></p>
+    <h3 id="GA查尋" fgid="17865"><a class="anchor hidden-xs" href="#GA查尋" title="GA查尋" fgid="17871"><span class="octicon octicon-link" fgid="17877"></span></a>GA查尋</h3>
+    <table fgid="17397">
+      <thead fgid="17403">
+        <tr fgid="17409">
+          <th style="text-align:left" fgid="17415">首頁區塊</th>
+          <th style="text-align:left" fgid="17422">事件類別</th>
+          <th style="text-align:left" fgid="17429">事件標籤</th>
+        </tr>
+      </thead>
+      <tbody fgid="17436">
+        <tr fgid="17442">
+          <td style="text-align:left" fgid="17448">上方輪播</td>
+          <td style="text-align:left" fgid="17455">A</td>
+          <td style="text-align:left" fgid="17462">a</td>
+        </tr>
+        <tr fgid="17469">
+          <td style="text-align:left" fgid="17475">選單</td>
+          <td style="text-align:left" fgid="17482">L</td>
+          <td style="text-align:left" fgid="17489">tab</td>
+        </tr>
+        <tr fgid="17496">
+          <td style="text-align:left" fgid="17502">選單內banner</td>
+          <td style="text-align:left" fgid="17509">L</td>
+          <td style="text-align:left" fgid="17516">l</td>
+        </tr>
+        <tr fgid="17523">
+          <td style="text-align:left" fgid="17529">首頁banner輪播</td>
+          <td style="text-align:left" fgid="17536">B</td>
+          <td style="text-align:left" fgid="17543">b</td>
+        </tr>
+        <tr fgid="17550">
+          <td style="text-align:left" fgid="17556">首頁上方四小格</td>
+          <td style="text-align:left" fgid="17563">C</td>
+          <td style="text-align:left" fgid="17570">c</td>
+        </tr>
+        <tr fgid="17577">
+          <td style="text-align:left" fgid="17583"><strong fgid="17589">首頁版身區塊</strong></td>
+          <td style="text-align:left" fgid="17596"><strong fgid="17602">事件類別</strong></td>
+          <td style="text-align:left" fgid="17609"><strong fgid="17615">事件標籤</strong></td>
+        </tr>
+        <tr fgid="17622">
+          <td style="text-align:left" fgid="17628">iPhone</td>
+          <td style="text-align:left" fgid="17635">D</td>
+          <td style="text-align:left" fgid="17642">d</td>
+        </tr>
+        <tr fgid="17649">
+          <td style="text-align:left" fgid="17655">Mac</td>
+          <td style="text-align:left" fgid="17662">E</td>
+          <td style="text-align:left" fgid="17669">e</td>
+        </tr>
+        <tr fgid="17676">
+          <td style="text-align:left" fgid="17682">iPad</td>
+          <td style="text-align:left" fgid="17689">F</td>
+          <td style="text-align:left" fgid="17696">f</td>
+        </tr>
+        <tr fgid="17703">
+          <td style="text-align:left" fgid="17709">Watch</td>
+          <td style="text-align:left" fgid="17716">G</td>
+          <td style="text-align:left" fgid="17723">g</td>
+        </tr>
+        <tr fgid="17730">
+          <td style="text-align:left" fgid="17736">Beats</td>
+          <td style="text-align:left" fgid="17743">H</td>
+          <td style="text-align:left" fgid="17750">h</td>
+        </tr>
+        <tr fgid="17757">
+          <td style="text-align:left" fgid="17763">Accessories</td>
+          <td style="text-align:left" fgid="17770">I</td>
+          <td style="text-align:left" fgid="17777">i</td>
+        </tr>
+        <tr fgid="17784">
+          <td style="text-align:left" fgid="17790">Homekit</td>
+          <td style="text-align:left" fgid="17797">J</td>
+          <td style="text-align:left" fgid="17804">j</td>
+        </tr>
+        <tr fgid="17811">
+          <td style="text-align:left" fgid="17817">MFi</td>
+          <td style="text-align:left" fgid="17824">K</td>
+          <td style="text-align:left" fgid="17831">k</td>
+        </tr>
+        <tr fgid="17838">
+          <td style="text-align:left" fgid="17844">首頁下方四格</td>
+          <td style="text-align:left" fgid="17851">N</td>
+          <td style="text-align:left" fgid="17858">n</td>
+        </tr>
+      </tbody>
+    </table>
+    <table fgid="16971">
+      <thead fgid="16977">
+        <tr fgid="16983">
+          <th fgid="16989">次分頁</th>
+          <th fgid="16996">事件類別(版頭)</th>
+          <th fgid="17003">事件標籤(版頭)</th>
+          <th style="text-align:left" fgid="17010">事件類別(版身)</th>
+          <th fgid="17017">事件標籤(版身)</th>
+        </tr>
+      </thead>
+      <tbody fgid="17024">
+        <tr fgid="17030">
+          <td fgid="17036">iPhone</td>
+          <td fgid="17043">O</td>
+          <td fgid="17050">o</td>
+          <td style="text-align:left" fgid="17057">P</td>
+          <td fgid="17064">p</td>
+        </tr>
+        <tr fgid="17071">
+          <td fgid="17077">Mac</td>
+          <td fgid="17084">Q</td>
+          <td fgid="17091">q</td>
+          <td style="text-align:left" fgid="17098">R</td>
+          <td fgid="17105">r</td>
+        </tr>
+        <tr fgid="17112">
+          <td fgid="17118">iPad</td>
+          <td fgid="17125">S</td>
+          <td fgid="17132">s</td>
+          <td style="text-align:left" fgid="17139">T</td>
+          <td fgid="17146">t</td>
+        </tr>
+        <tr fgid="17153">
+          <td fgid="17159">Watch</td>
+          <td fgid="17166">U</td>
+          <td fgid="17173">u</td>
+          <td style="text-align:left" fgid="17180">V</td>
+          <td fgid="17187">v</td>
+        </tr>
+        <tr fgid="17194">
+          <td fgid="17200">Music</td>
+          <td fgid="17207">W</td>
+          <td fgid="17214">w</td>
+          <td style="text-align:left" fgid="17221">X</td>
+          <td fgid="17228">x</td>
+        </tr>
+        <tr fgid="17235">
+          <td fgid="17241">Beats</td>
+          <td fgid="17248">Y</td>
+          <td fgid="17255">y</td>
+          <td style="text-align:left" fgid="17262">Z</td>
+          <td fgid="17269">z</td>
+        </tr>
+        <tr fgid="17276">
+          <td fgid="17282">Accessories</td>
+          <td fgid="17289">AA</td>
+          <td fgid="17296">aa</td>
+          <td style="text-align:left" fgid="17303">AB</td>
+          <td fgid="17310">ab</td>
+        </tr>
+        <tr fgid="17317">
+          <td fgid="17323">Insurance</td>
+          <td fgid="17330">AC</td>
+          <td fgid="17337">ac</td>
+          <td style="text-align:left" fgid="17344">AD</td>
+          <td fgid="17351">ad</td>
+        </tr>
+        <tr fgid="17358">
+          <td fgid="17364">Apple-music</td>
+          <td fgid="17371">MU</td>
+          <td fgid="17378">mu</td>
+          <td style="text-align:left" fgid="17385"></td>
+          <td fgid="17391"></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="3headerhtml" fgid="16951"><a class="anchor hidden-xs" href="#3headerhtml" title="3headerhtml" fgid="16957"><span class="octicon octicon-link" fgid="16963"></span></a>3.header.html</h2>
+    <p fgid="16932">此頁為主、次頁共用版頭加選單<br fgid="16939">
+      <img src="img/header.jpg" alt="" fgid="16945"></p>
+    <h3 id="新增選單內的AD" fgid="16912"><a class="anchor hidden-xs" href="#新增選單內的AD" title="新增選單內的AD" fgid="16918"><span class="octicon octicon-link" fgid="16924"></span></a>新增選單內的AD</h3>
+    <p fgid="16905">(目前各選單預設為一張)</p>
+    <pre fgid="16532"><code class="htmlmixed hljs" fgid="16538"><div class="wrapper" fgid="16544"><div class="gutter linenumber" fgid="16550"><span data-linenumber="1" fgid="16556"></span>
+<span data-linenumber="2" fgid="16564"></span>
+<span data-linenumber="3" fgid="16572"></span>
+<span data-linenumber="4" fgid="16580"></span>
+<span data-linenumber="5" fgid="16588"></span>
+<span data-linenumber="6" fgid="16596"></span>
+<span data-linenumber="7" fgid="16604"></span>
+<span data-linenumber="8" fgid="16612"></span>
+<span data-linenumber="9" fgid="16620"></span></div><div class="code" fgid="16627"><span class="hljs-comment" fgid="16633">&lt;!-- nav__pane--ad --&gt;</span>
+<span class="hljs-tag" fgid="16641">&lt;<span class="hljs-name" fgid="16648">div</span> <span class="hljs-attr" fgid="16656">class</span>=<span class="hljs-string" fgid="16664">"col"</span>&gt;</span>
+  <span class="hljs-tag" fgid="16673">&lt;<span class="hljs-name" fgid="16680">a</span> <span class="hljs-attr" fgid="16688">class</span>=<span class="hljs-string" fgid="16696">"nav__pane--ad"</span> <span class="hljs-attr" fgid="16704">href</span>=<span class="hljs-string" fgid="16712">""</span> <span class="hljs-attr" fgid="16720">target</span>=<span class="hljs-string" fgid="16728">"_blank"</span>&gt;</span>
+    <span class="hljs-tag" fgid="16737">&lt;<span class="hljs-name" fgid="16744">img</span> <span class="hljs-attr" fgid="16752">src</span>=<span class="hljs-string" fgid="16760">"img/tab1_1.jpg"</span>&gt;</span>
+    <span class="hljs-tag" fgid="16769">&lt;<span class="hljs-name" fgid="16776">p</span> <span class="hljs-attr" fgid="16784">class</span>=<span class="hljs-string" fgid="16792">"nav__pane--name"</span>&gt;</span>Macbook Pro<span class="hljs-tag" fgid="16801">&lt;/<span class="hljs-name" fgid="16808">p</span>&gt;</span>
+    <span class="hljs-tag" fgid="16817">&lt;<span class="hljs-name" fgid="16824">p</span> <span class="hljs-attr" fgid="16832">class</span>=<span class="hljs-string" fgid="16840">"nav__pane--price"</span>&gt;</span>$5000<span class="hljs-tag" fgid="16849">&lt;/<span class="hljs-name" fgid="16856">p</span>&gt;</span>
+  <span class="hljs-tag" fgid="16865">&lt;/<span class="hljs-name" fgid="16872">a</span>&gt;</span>
+<span class="hljs-tag" fgid="16881">&lt;/<span class="hljs-name" fgid="16888">div</span>&gt;</span>
+<span class="hljs-comment" fgid="16897">&lt;!--END nav__pane--ad --&gt;</span>
+</div></div></code></pre>
+    <h3 id="右上方小輪播換檔下方JS" fgid="16512"><a class="anchor hidden-xs" href="#右上方小輪播換檔下方JS" title="右上方小輪播換檔下方JS" fgid="16518"><span class="octicon octicon-link" fgid="16524"></span></a>右上方小輪播換檔(下方JS)</h3>
+    <ol fgid="16492">
+      <li fgid="16498">卡片html與下方js section數量需一致，若有兩張卡片，則新增<strong fgid="16505">section2</strong></li>
+    </ol>
+    <pre fgid="16143"><code class="htmlmixed hljs" fgid="16149"><div class="wrapper" fgid="16155"><div class="gutter linenumber" fgid="16161"><span data-linenumber="1" fgid="16167"></span>
+<span data-linenumber="2" fgid="16175"></span>
+<span data-linenumber="3" fgid="16183"></span>
+<span data-linenumber="4" fgid="16191"></span>
+<span data-linenumber="5" fgid="16199"></span>
+<span data-linenumber="6" fgid="16207"></span>
+<span data-linenumber="7" fgid="16215"></span>
+<span data-linenumber="8" fgid="16223"></span>
+<span data-linenumber="9" fgid="16231"></span></div><div class="code" fgid="16238"><span class="hljs-comment" fgid="16244">&lt;!--HTML--&gt;</span>
+<span class="hljs-comment" fgid="16252">&lt;!--第1張圖片--&gt;</span>
+<span class="hljs-tag" fgid="16260">&lt;<span class="hljs-name" fgid="16267">a</span> <span class="hljs-attr" fgid="16275">href</span>=<span class="hljs-string" fgid="16283">"javascript:;"</span> <span class="hljs-attr" fgid="16291">target</span>=<span class="hljs-string" fgid="16299">"_blank"</span> <span class="hljs-attr" fgid="16307">class</span>=<span class="hljs-string" fgid="16315">"swiper-slide ga-bn"</span>&gt;</span>
+ <span class="hljs-tag" fgid="16324">&lt;<span class="hljs-name" fgid="16331">img</span> <span class="hljs-attr" fgid="16339">src</span>=<span class="hljs-string" fgid="16347">"img/topslider/01.jpg"</span>&gt;</span>
+<span class="hljs-tag" fgid="16356">&lt;/<span class="hljs-name" fgid="16363">a</span>&gt;</span>
+<span class="hljs-comment" fgid="16372">&lt;!--第2張圖片--&gt;</span>
+<span class="hljs-tag" fgid="16380">&lt;<span class="hljs-name" fgid="16387">a</span> <span class="hljs-attr" fgid="16395">href</span>=<span class="hljs-string" fgid="16403">"javascript:;"</span> <span class="hljs-attr" fgid="16411">target</span>=<span class="hljs-string" fgid="16419">"_blank"</span> <span class="hljs-attr" fgid="16427">class</span>=<span class="hljs-string" fgid="16435">"swiper-slide ga-bn"</span>&gt;</span>
+ <span class="hljs-tag" fgid="16444">&lt;<span class="hljs-name" fgid="16451">img</span> <span class="hljs-attr" fgid="16459">src</span>=<span class="hljs-string" fgid="16467">"img/topslider/02.jpg"</span>&gt;</span>
+<span class="hljs-tag" fgid="16476">&lt;/<span class="hljs-name" fgid="16483">a</span>&gt;</span>
+</div></div></code></pre>
+    <pre fgid="15444"><code class="javascript hljs" fgid="15450"><div class="wrapper" fgid="15456"><div class="gutter linenumber" fgid="15462"><span data-linenumber="1" fgid="15468"></span>
+<span data-linenumber="2" fgid="15476"></span>
+<span data-linenumber="3" fgid="15484"></span>
+<span data-linenumber="4" fgid="15492"></span>
+<span data-linenumber="5" fgid="15500"></span>
+<span data-linenumber="6" fgid="15508"></span>
+<span data-linenumber="7" fgid="15516"></span>
+<span data-linenumber="8" fgid="15524"></span>
+<span data-linenumber="9" fgid="15532"></span>
+<span data-linenumber="10" fgid="15540"></span>
+<span data-linenumber="11" fgid="15548"></span>
+<span data-linenumber="12" fgid="15556"></span>
+<span data-linenumber="13" fgid="15564"></span>
+<span data-linenumber="14" fgid="15572"></span>
+<span data-linenumber="15" fgid="15580"></span>
+<span data-linenumber="16" fgid="15588"></span>
+<span data-linenumber="17" fgid="15596"></span>
+<span data-linenumber="18" fgid="15604"></span>
+<span data-linenumber="19" fgid="15612"></span>
+<span data-linenumber="20" fgid="15620"></span>
+<span data-linenumber="21" fgid="15628"></span>
+<span data-linenumber="22" fgid="15636"></span>
+<span data-linenumber="23" fgid="15644"></span>
+<span data-linenumber="24" fgid="15652"></span>
+<span data-linenumber="25" fgid="15660"></span>
+<span data-linenumber="26" fgid="15668"></span>
+<span data-linenumber="27" fgid="15676"></span></div><div class="code" fgid="15683"><span class="token comment" fgid="15689">//JS</span>
+<span class="token comment" fgid="15697">// 第1張圖片</span>
+section1<span class="token punctuation" fgid="15705">:</span> <span class="token punctuation" fgid="15713">[</span>
+  <span class="token punctuation" fgid="15721">{</span>
+    deadline<span class="token punctuation" fgid="15729">:</span> <span class="token string" fgid="15737">'2020-04-28 23:59'</span><span class="token punctuation" fgid="15744">,</span>
+    link<span class="token punctuation" fgid="15752">:</span> <span class="token string" fgid="15760">'1_1'</span><span class="token punctuation" fgid="15767">,</span>
+    img<span class="token punctuation" fgid="15775">:</span> <span class="token string" fgid="15783">'img/topslider/01_1.jpg'</span><span class="token punctuation" fgid="15790">,</span>
+  <span class="token punctuation" fgid="15798">}</span><span class="token punctuation" fgid="15805">,</span>
+  <span class="token punctuation" fgid="15813">{</span>
+    deadline<span class="token punctuation" fgid="15821">:</span> <span class="token string" fgid="15829">'2020-04-30 23:59'</span><span class="token punctuation" fgid="15836">,</span>
+    link<span class="token punctuation" fgid="15844">:</span> <span class="token string" fgid="15852">'1_2'</span><span class="token punctuation" fgid="15859">,</span>
+    img<span class="token punctuation" fgid="15867">:</span> <span class="token string" fgid="15875">'img/topslider/01_2.jpg'</span><span class="token punctuation" fgid="15882">,</span>
+  <span class="token punctuation" fgid="15890">}</span><span class="token punctuation" fgid="15897">,</span>
+<span class="token punctuation" fgid="15905">]</span><span class="token punctuation" fgid="15912">,</span>
+<span class="token comment" fgid="15920">// 第2張圖片</span>
+section2<span class="token punctuation" fgid="15928">:</span> <span class="token punctuation" fgid="15936">[</span>
+  <span class="token punctuation" fgid="15944">{</span>
+    deadline<span class="token punctuation" fgid="15952">:</span> <span class="token string" fgid="15960">'2020-04-28 23:59'</span><span class="token punctuation" fgid="15967">,</span>
+    link<span class="token punctuation" fgid="15975">:</span> <span class="token string" fgid="15983">'2_1'</span><span class="token punctuation" fgid="15990">,</span>
+    img<span class="token punctuation" fgid="15998">:</span> <span class="token string" fgid="16006">'img/topslider/02_1.jpg'</span><span class="token punctuation" fgid="16013">,</span>
+  <span class="token punctuation" fgid="16021">}</span><span class="token punctuation" fgid="16028">,</span>
+  <span class="token punctuation" fgid="16036">{</span>
+    deadline<span class="token punctuation" fgid="16044">:</span> <span class="token string" fgid="16052">'2020-04-30 23:59'</span><span class="token punctuation" fgid="16059">,</span>
+    link<span class="token punctuation" fgid="16067">:</span> <span class="token string" fgid="16075">'2_2'</span><span class="token punctuation" fgid="16082">,</span>
+    img<span class="token punctuation" fgid="16090">:</span> <span class="token string" fgid="16098">'img/topslider/02_2.jpg'</span><span class="token punctuation" fgid="16105">,</span>
+  <span class="token punctuation" fgid="16113">}</span><span class="token punctuation" fgid="16120">,</span>
+<span class="token punctuation" fgid="16128">]</span><span class="token punctuation" fgid="16135">,</span>
+</div></div></code></pre>
+    <ol start="2" fgid="15408">
+      <li fgid="15414">每個section包含不同的檔期，順序由上到下，<mark fgid="15421">deadline</mark>指的是這張卡片持續到何時。<br fgid="15429">
+        ex:下方代表此卡有兩個檔期，假設目前為04/25，則目前的圖片會是01.jpg，直到過了<strong fgid="15436">04/28 23:59</strong>(第一檔的deadline)，就會換成01_2.jpg，第二檔的deadline是5/30 23:59，所以過了這時間就會再往下跳，如果沒有設定第三檔，那麼就會回到原本的html裡img圖片。</li>
+    </ol>
+    <pre fgid="15115"><code class="javascript hljs" fgid="15121"><div class="wrapper" fgid="15127"><div class="gutter linenumber" fgid="15133"><span data-linenumber="1" fgid="15139"></span>
+<span data-linenumber="2" fgid="15147"></span>
+<span data-linenumber="3" fgid="15155"></span>
+<span data-linenumber="4" fgid="15163"></span>
+<span data-linenumber="5" fgid="15171"></span>
+<span data-linenumber="6" fgid="15179"></span>
+<span data-linenumber="7" fgid="15187"></span>
+<span data-linenumber="8" fgid="15195"></span>
+<span data-linenumber="9" fgid="15203"></span>
+<span data-linenumber="10" fgid="15211"></span></div><div class="code" fgid="15218"><span class="token punctuation" fgid="15224">{</span>
+  deadline<span class="token punctuation" fgid="15232">:</span> <span class="token string" fgid="15240">'2020-04-28 23:59'</span><span class="token punctuation" fgid="15247">,</span>
+  link<span class="token punctuation" fgid="15255">:</span> <span class="token string" fgid="15263">'123'</span><span class="token punctuation" fgid="15270">,</span>
+  img<span class="token punctuation" fgid="15278">:</span> <span class="token string" fgid="15286">'img/topslider/01.jpg'</span><span class="token punctuation" fgid="15293">,</span>
+<span class="token punctuation" fgid="15301">}</span><span class="token punctuation" fgid="15308">,</span>
+<span class="token punctuation" fgid="15316">{</span>
+  deadline<span class="token punctuation" fgid="15324">:</span> <span class="token string" fgid="15332">'2020-05-30 23:59'</span><span class="token punctuation" fgid="15339">,</span>
+  link<span class="token punctuation" fgid="15347">:</span> <span class="token string" fgid="15355">'456'</span><span class="token punctuation" fgid="15362">,</span>
+  img<span class="token punctuation" fgid="15370">:</span> <span class="token string" fgid="15378">'img/topslider/01_2.jpg'</span><span class="token punctuation" fgid="15385">,</span>
+<span class="token punctuation" fgid="15393">}</span><span class="token punctuation" fgid="15400">,</span>
+</div></div></code></pre>
+    <div class="alert alert-danger" fgid="15102">
+      <p fgid="15108">勿一次設定過多檔期，適時的刪除過期的js及圖片以節省空間</p>
+    </div>
+    <h2 id="4-indexhtml" fgid="15082"><a class="anchor hidden-xs" href="#4-indexhtml" title="4-indexhtml" fgid="15088"><span class="octicon octicon-link" fgid="15094"></span></a>4. index.html</h2>
+    <h3 id="主頁大-banner輪播" fgid="15062"><a class="anchor hidden-xs" href="#主頁大-banner輪播" title="主頁大-banner輪播" fgid="15068"><span class="octicon octicon-link" fgid="15074"></span></a>主頁大 banner輪播</h3>
+    <p fgid="15055">a標籤為一張輪播圖(包含桌手)，因為主頁大輪播有換檔功能，所以必須注意與下方 js的 section數量一致</p>
+    <pre fgid="14674"><code class="htmlmixed hljs" fgid="14680"><div class="wrapper" fgid="14686"><div class="gutter linenumber" fgid="14692"><span data-linenumber="1" fgid="14698"></span>
+<span data-linenumber="2" fgid="14706"></span>
+<span data-linenumber="3" fgid="14714"></span>
+<span data-linenumber="4" fgid="14722"></span>
+<span data-linenumber="5" fgid="14730"></span>
+<span data-linenumber="6" fgid="14738"></span>
+<span data-linenumber="7" fgid="14746"></span>
+<span data-linenumber="8" fgid="14754"></span>
+<span data-linenumber="9" fgid="14762"></span>
+<span data-linenumber="10" fgid="14770"></span></div><div class="code" fgid="14777"><span class="hljs-comment" fgid="14783">&lt;!---- [ banner ] ----&gt;</span>
+<span class="hljs-tag" fgid="14791">&lt;<span class="hljs-name" fgid="14798">div</span> <span class="hljs-attr" fgid="14806">class</span>=<span class="hljs-string" fgid="14814">"banner ga-slider"</span> <span class="hljs-attr" fgid="14822">data-class</span>=<span class="hljs-string" fgid="14830">"B"</span>&gt;</span>
+    ...
+  <span class="hljs-tag" fgid="14839">&lt;<span class="hljs-name" fgid="14846">a</span> <span class="hljs-attr" fgid="14854">target</span>=<span class="hljs-string" fgid="14862">"_blank"</span> <span class="hljs-attr" fgid="14870">href</span>=<span class="hljs-string" fgid="14878">""</span> <span class="hljs-attr" fgid="14886">target</span>=<span class="hljs-string" fgid="14894">"_blank"</span> <span class="hljs-attr" fgid="14902">class</span>=<span class="hljs-string" fgid="14910">"swiper-slide ga-bn"</span>&gt;</span>
+    <span class="hljs-tag" fgid="14919">&lt;<span class="hljs-name" fgid="14926">img</span> <span class="hljs-attr" fgid="14934">class</span>=<span class="hljs-string" fgid="14942">"pc"</span> <span class="hljs-attr" fgid="14950">src</span>=<span class="hljs-string" fgid="14958">"img/bannerslider/01.png"</span>&gt;</span>
+    <span class="hljs-tag" fgid="14967">&lt;<span class="hljs-name" fgid="14974">img</span> <span class="hljs-attr" fgid="14982">class</span>=<span class="hljs-string" fgid="14990">"mb"</span> <span class="hljs-attr" fgid="14998">src</span>=<span class="hljs-string" fgid="15006">"img/bannerslider/01_m.png"</span>&gt;</span>
+  <span class="hljs-tag" fgid="15015">&lt;/<span class="hljs-name" fgid="15022">a</span>&gt;</span>
+    ...
+<span class="hljs-tag" fgid="15031">&lt;/<span class="hljs-name" fgid="15038">div</span>&gt;</span>
+<span class="hljs-comment" fgid="15047">&lt;!---- END [ banner ] ----&gt;</span>
+</div></div></code></pre>
+    <p fgid="14667">操作方式與header輪播一樣，唯一不同是大banner輪播有桌手兩張圖，所以section內每檔設定也會多出一個屬性</p>
+    <pre fgid="14169"><code class="javascript hljs" fgid="14175"><div class="wrapper" fgid="14181"><div class="gutter linenumber" fgid="14187"><span data-linenumber="1" fgid="14193"></span>
+<span data-linenumber="2" fgid="14201"></span>
+<span data-linenumber="3" fgid="14209"></span>
+<span data-linenumber="4" fgid="14217"></span>
+<span data-linenumber="5" fgid="14225"></span>
+<span data-linenumber="6" fgid="14233"></span>
+<span data-linenumber="7" fgid="14241"></span>
+<span data-linenumber="8" fgid="14249"></span>
+<span data-linenumber="9" fgid="14257"></span>
+<span data-linenumber="10" fgid="14265"></span>
+<span data-linenumber="11" fgid="14273"></span>
+<span data-linenumber="12" fgid="14281"></span>
+<span data-linenumber="13" fgid="14289"></span>
+<span data-linenumber="14" fgid="14297"></span>
+<span data-linenumber="15" fgid="14305"></span>
+<span data-linenumber="16" fgid="14313"></span>
+<span data-linenumber="17" fgid="14321"></span>
+<span data-linenumber="18" fgid="14329"></span>
+<span data-linenumber="19" fgid="14337"></span></div><div class="code" fgid="14344"><span class="token comment" fgid="14350">//------------- Banner輪播換檔-------------</span>
+<span class="token keyword" fgid="14358">var</span> bannerSliderData <span class="token operator" fgid="14366">=</span> <span class="token punctuation" fgid="14374">{</span>
+ section1<span class="token punctuation" fgid="14382">:</span> <span class="token punctuation" fgid="14390">[</span>
+    <span class="token punctuation" fgid="14398">{</span>
+      deadline<span class="token punctuation" fgid="14406">:</span> <span class="token string" fgid="14414">'2020-04-28 23:59'</span><span class="token punctuation" fgid="14421">,</span>
+      link<span class="token punctuation" fgid="14429">:</span> <span class="token string" fgid="14437">'123'</span><span class="token punctuation" fgid="14444">,</span>
+      imgPc<span class="token punctuation" fgid="14452">:</span> <span class="token string" fgid="14460">'img/bannerslider/01.png'</span><span class="token punctuation" fgid="14467">,</span>
+      imgMb<span class="token punctuation" fgid="14475">:</span> <span class="token string" fgid="14483">'img/bannerslider/01_m.png'</span><span class="token punctuation" fgid="14490">,</span>
+    <span class="token punctuation" fgid="14498">}</span><span class="token punctuation" fgid="14505">,</span>
+    <span class="token punctuation" fgid="14513">{</span>
+      deadline<span class="token punctuation" fgid="14521">:</span> <span class="token string" fgid="14529">'2020-05-30 23:59'</span><span class="token punctuation" fgid="14536">,</span>
+      link<span class="token punctuation" fgid="14544">:</span> <span class="token string" fgid="14552">'123'</span><span class="token punctuation" fgid="14559">,</span>
+      imgPc<span class="token punctuation" fgid="14567">:</span> <span class="token string" fgid="14575">'img/bannerslider/02.png'</span><span class="token punctuation" fgid="14582">,</span>
+      imgMb<span class="token punctuation" fgid="14590">:</span> <span class="token string" fgid="14598">'img/bannerslider/02_m.png'</span><span class="token punctuation" fgid="14605">,</span>
+    <span class="token punctuation" fgid="14613">}</span><span class="token punctuation" fgid="14620">,</span>
+  <span class="token punctuation" fgid="14628">]</span><span class="token punctuation" fgid="14635">,</span>
+  <span class="token operator" fgid="14643">...</span>
+<span class="token punctuation" fgid="14651">}</span>
+<span class="token comment" fgid="14659">//-------------END Banner輪播換檔-------------</span>
+</div></div></code></pre>
+    <h3 id="首頁四小區塊" fgid="14149"><a class="anchor hidden-xs" href="#首頁四小區塊" title="首頁四小區塊" fgid="14155"><span class="octicon octicon-link" fgid="14161"></span></a>首頁四小區塊</h3>
+    <p fgid="14134">調整版型，<mark fgid="14141">row</mark>裡每一個div為一卡，注意各自包含的class name，col後面可接的數字以12為最大寬度上限</p>
+    <ul fgid="14114">
+      <li fgid="14120">col-6: 為此欄位預設值，代表佔總寬度的一半(6/12 = 50%)</li>
+      <li fgid="14127">col-lg-3: 中間代入尺吋為斷點，代表若目前螢幕尺吋為lg(992px)以上，則套用此設定。</li>
+    </ul>
+    <p fgid="14107">所以兩個class name合起來就是: 在螢幕尺吋992px以上就佔3/12(25%)，992px以下佔6/12(50%)</p>
+    <blockquote fgid="14080">
+      <p fgid="14086">常用斷點<br fgid="14093">
+        col-md: 大於768px<br fgid="14100">
+        col-lg: 大於992px</p>
+    </blockquote>
+    <pre fgid="13651"><code class="htmlmixed hljs" fgid="13657"><div class="wrapper" fgid="13663"><div class="gutter linenumber" fgid="13669"><span data-linenumber="1" fgid="13675"></span>
+<span data-linenumber="2" fgid="13683"></span>
+<span data-linenumber="3" fgid="13691"></span>
+<span data-linenumber="4" fgid="13699"></span>
+<span data-linenumber="5" fgid="13707"></span>
+<span data-linenumber="6" fgid="13715"></span>
+<span data-linenumber="7" fgid="13723"></span>
+<span data-linenumber="8" fgid="13731"></span>
+<span data-linenumber="9" fgid="13739"></span>
+<span data-linenumber="10" fgid="13747"></span></div><div class="code" fgid="13754"><span class="hljs-comment" fgid="13760">&lt;!---- [bn-list] ----&gt;</span>
+<span class="hljs-tag" fgid="13768">&lt;<span class="hljs-name" fgid="13775">div</span> <span class="hljs-attr" fgid="13783">class</span>=<span class="hljs-string" fgid="13791">"bn-list container"</span> <span class="hljs-attr" fgid="13799">data-class</span>=<span class="hljs-string" fgid="13807">"C"</span>&gt;</span>
+  <span class="hljs-tag" fgid="13816">&lt;<span class="hljs-name" fgid="13823">div</span> <span class="hljs-attr" fgid="13831">class</span>=<span class="hljs-string" fgid="13839">"row"</span>&gt;</span>
+    <span class="hljs-tag" fgid="13848">&lt;<span class="hljs-name" fgid="13855">div</span> <span class="hljs-attr" fgid="13863">class</span>=<span class="hljs-string" fgid="13871">"col-6 col-lg-3"</span>&gt;</span>...<span class="hljs-tag" fgid="13880">&lt;/<span class="hljs-name" fgid="13887">div</span>&gt;</span>
+    <span class="hljs-tag" fgid="13896">&lt;<span class="hljs-name" fgid="13903">div</span> <span class="hljs-attr" fgid="13911">class</span>=<span class="hljs-string" fgid="13919">"col-6 col-lg-3"</span>&gt;</span>...<span class="hljs-tag" fgid="13928">&lt;/<span class="hljs-name" fgid="13935">div</span>&gt;</span>
+    <span class="hljs-tag" fgid="13944">&lt;<span class="hljs-name" fgid="13951">div</span> <span class="hljs-attr" fgid="13959">class</span>=<span class="hljs-string" fgid="13967">"col-6 col-lg-3"</span>&gt;</span>...<span class="hljs-tag" fgid="13976">&lt;/<span class="hljs-name" fgid="13983">div</span>&gt;</span>
+    <span class="hljs-tag" fgid="13992">&lt;<span class="hljs-name" fgid="13999">div</span> <span class="hljs-attr" fgid="14007">class</span>=<span class="hljs-string" fgid="14015">"col-6 col-lg-3"</span>&gt;</span>...<span class="hljs-tag" fgid="14024">&lt;/<span class="hljs-name" fgid="14031">div</span>&gt;</span>
+  <span class="hljs-tag" fgid="14040">&lt;/<span class="hljs-name" fgid="14047">div</span>&gt;</span>
+<span class="hljs-tag" fgid="14056">&lt;/<span class="hljs-name" fgid="14063">div</span>&gt;</span>
+<span class="hljs-comment" fgid="14072">&lt;!----END [bn-list] ----&gt;</span>
+</div></div></code></pre>
+    <p fgid="13632">範例: 一大兩小<br fgid="13639">
+      <img src="img/col.jpg" alt="" fgid="13645"></p>
+    <pre fgid="13259"><code class="htmlmixed hljs" fgid="13265"><div class="wrapper" fgid="13271"><div class="gutter linenumber" fgid="13277"><span data-linenumber="1" fgid="13283"></span>
+<span data-linenumber="2" fgid="13291"></span>
+<span data-linenumber="3" fgid="13299"></span>
+<span data-linenumber="4" fgid="13307"></span>
+<span data-linenumber="5" fgid="13315"></span>
+<span data-linenumber="6" fgid="13323"></span>
+<span data-linenumber="7" fgid="13331"></span>
+<span data-linenumber="8" fgid="13339"></span>
+<span data-linenumber="9" fgid="13347"></span></div><div class="code" fgid="13354"><span class="hljs-comment" fgid="13360">&lt;!---- [bn-list] ----&gt;</span>
+<span class="hljs-tag" fgid="13368">&lt;<span class="hljs-name" fgid="13375">div</span> <span class="hljs-attr" fgid="13383">class</span>=<span class="hljs-string" fgid="13391">"bn-list container"</span> <span class="hljs-attr" fgid="13399">data-class</span>=<span class="hljs-string" fgid="13407">"C"</span>&gt;</span>
+  <span class="hljs-tag" fgid="13416">&lt;<span class="hljs-name" fgid="13423">div</span> <span class="hljs-attr" fgid="13431">class</span>=<span class="hljs-string" fgid="13439">"row"</span>&gt;</span>
+    <span class="hljs-tag" fgid="13448">&lt;<span class="hljs-name" fgid="13455">div</span> <span class="hljs-attr" fgid="13463">class</span>=<span class="hljs-string" fgid="13471">"col-12 col-lg-6"</span>&gt;</span>...<span class="hljs-tag" fgid="13480">&lt;/<span class="hljs-name" fgid="13487">div</span>&gt;</span>
+    <span class="hljs-tag" fgid="13496">&lt;<span class="hljs-name" fgid="13503">div</span> <span class="hljs-attr" fgid="13511">class</span>=<span class="hljs-string" fgid="13519">"col-6 col-lg-3"</span>&gt;</span>...<span class="hljs-tag" fgid="13528">&lt;/<span class="hljs-name" fgid="13535">div</span>&gt;</span>
+    <span class="hljs-tag" fgid="13544">&lt;<span class="hljs-name" fgid="13551">div</span> <span class="hljs-attr" fgid="13559">class</span>=<span class="hljs-string" fgid="13567">"col-6 col-lg-3"</span>&gt;</span>...<span class="hljs-tag" fgid="13576">&lt;/<span class="hljs-name" fgid="13583">div</span>&gt;</span>
+  <span class="hljs-tag" fgid="13592">&lt;/<span class="hljs-name" fgid="13599">div</span>&gt;</span>
+<span class="hljs-tag" fgid="13608">&lt;/<span class="hljs-name" fgid="13615">div</span>&gt;</span>
+<span class="hljs-comment" fgid="13624">&lt;!----END [bn-list] ----&gt;</span>
+</div></div></code></pre>
+    <blockquote fgid="13246">
+      <p fgid="13252">此區塊一樣有換檔功能，所以當在變更html結構調整版型、卡數時，也要一併調整下方js 的section數量</p>
+    </blockquote>
+    <pre fgid="13121"><code class="javascript hljs" fgid="13127"><div class="wrapper" fgid="13133"><div class="gutter linenumber" fgid="13139"><span data-linenumber="1" fgid="13145"></span>
+<span data-linenumber="2" fgid="13153"></span>
+<span data-linenumber="3" fgid="13161"></span>
+<span data-linenumber="4" fgid="13169"></span>
+<span data-linenumber="5" fgid="13177"></span></div><div class="code" fgid="13184"><span class="token comment" fgid="13190">//------------- Bn-list 格子換檔-------------</span>
+<span class="token keyword" fgid="13198">var</span> bnListData <span class="token operator" fgid="13206">=</span> <span class="token punctuation" fgid="13214">{</span>
+ <span class="token operator" fgid="13222">...</span>
+<span class="token punctuation" fgid="13230">}</span>
+<span class="token comment" fgid="13238">//-------------END Bn-list -------------</span>
+</div></div></code></pre>
+    <h3 id="版身" fgid="13101"><a class="anchor hidden-xs" href="#版身" title="版身" fgid="13107"><span class="octicon octicon-link" fgid="13113"></span></a>版身</h3>
+    <p fgid="13094">首頁版身為index_01~08.html，由下方js載入，若需新增則要注意</p>
+    <ul fgid="13065">
+      <li fgid="13071">html裡要新增版身容器，注意<mark fgid="13078">id</mark>及<mark fgid="13086">data-class</mark>(GA代號自行命名)</li>
+    </ul>
+    <pre fgid="12612"><code class="htmlmixed hljs" fgid="12618"><div class="wrapper" fgid="12624"><div class="gutter linenumber" fgid="12630"><span data-linenumber="1" fgid="12636"></span>
+<span data-linenumber="2" fgid="12644"></span>
+<span data-linenumber="3" fgid="12652"></span>
+<span data-linenumber="4" fgid="12660"></span>
+<span data-linenumber="5" fgid="12668"></span>
+<span data-linenumber="6" fgid="12676"></span>
+<span data-linenumber="7" fgid="12684"></span>
+<span data-linenumber="8" fgid="12692"></span>
+<span data-linenumber="9" fgid="12700"></span>
+<span data-linenumber="10" fgid="12708"></span>
+<span data-linenumber="11" fgid="12716"></span>
+<span data-linenumber="12" fgid="12724"></span>
+<span data-linenumber="13" fgid="12732"></span>
+<span data-linenumber="14" fgid="12740"></span>
+<span data-linenumber="15" fgid="12748"></span></div><div class="code" fgid="12755"><span class="hljs-comment" fgid="12761">&lt;!---- [MFi] ----&gt;</span>
+<span class="hljs-tag" fgid="12769">&lt;<span class="hljs-name" fgid="12776">div</span> <span class="hljs-attr" fgid="12784">class</span>=<span class="hljs-string" fgid="12792">"pd container"</span> <span class="hljs-attr" fgid="12800">id</span>=<span class="hljs-string" fgid="12808">"pd8"</span> <span class="hljs-attr" fgid="12816">data-class</span>=<span class="hljs-string" fgid="12824">"K"</span>&gt;</span>
+  <span class="hljs-tag" fgid="12833">&lt;<span class="hljs-name" fgid="12840">div</span> <span class="hljs-attr" fgid="12848">class</span>=<span class="hljs-string" fgid="12856">"row"</span>&gt;</span>
+    <span class="hljs-comment" fgid="12865">&lt;!-- in index_08.html --&gt;</span>
+  <span class="hljs-tag" fgid="12873">&lt;/<span class="hljs-name" fgid="12880">div</span>&gt;</span>
+<span class="hljs-tag" fgid="12889">&lt;/<span class="hljs-name" fgid="12896">div</span>&gt;</span>
+<span class="hljs-comment" fgid="12905">&lt;!----END [MFi] ----&gt;</span>
+
+<span class="hljs-comment" fgid="12913">&lt;!---- [新的版身] ----&gt;</span>
+<span class="hljs-tag" fgid="12921">&lt;<span class="hljs-name" fgid="12928">div</span> <span class="hljs-attr" fgid="12936">class</span>=<span class="hljs-string" fgid="12944">"pd container"</span> <span class="hljs-attr" fgid="12952">id</span>=<span class="hljs-string" fgid="12960">"pd9"</span> <span class="hljs-attr" fgid="12968">data-class</span>=<span class="hljs-string" fgid="12976">"KK"</span>&gt;</span>
+  <span class="hljs-tag" fgid="12985">&lt;<span class="hljs-name" fgid="12992">div</span> <span class="hljs-attr" fgid="13000">class</span>=<span class="hljs-string" fgid="13008">"row"</span>&gt;</span>
+    <span class="hljs-comment" fgid="13017">&lt;!-- in index_09.html --&gt;</span>
+  <span class="hljs-tag" fgid="13025">&lt;/<span class="hljs-name" fgid="13032">div</span>&gt;</span>
+<span class="hljs-tag" fgid="13041">&lt;/<span class="hljs-name" fgid="13048">div</span>&gt;</span>
+<span class="hljs-comment" fgid="13057">&lt;!----END [新的版身] ----&gt;</span>
+</div></div></code></pre>
+    <ul fgid="12546">
+      <li fgid="12552">
+        <p fgid="12558">新增一頁html，可直接複製其他版身html，但需修改頁面上所有的pd class及id等<br fgid="12565">
+          ex:複製index_08.html為index_09.html，並搜尋頁面中所有<mark fgid="12572">pd8</mark>，改為<mark fgid="12580">pd9</mark><br fgid="12587">
+          <img src="img/pd.jpg" fgid="12593"></p>
+      </li>
+      <li fgid="12599">
+        <p fgid="12605">回到index.html，再下方js添加load</p>
+      </li>
+    </ul>
+    <pre fgid="12343"><code class="htmlmixed hljs" fgid="12349"><div class="wrapper" fgid="12355"><div class="gutter linenumber" fgid="12361"><span data-linenumber="1" fgid="12367"></span>
+<span data-linenumber="2" fgid="12375"></span>
+<span data-linenumber="3" fgid="12383"></span>
+<span data-linenumber="4" fgid="12391"></span>
+<span data-linenumber="5" fgid="12399"></span>
+<span data-linenumber="6" fgid="12407"></span>
+<span data-linenumber="7" fgid="12415"></span>
+<span data-linenumber="8" fgid="12423"></span>
+<span data-linenumber="9" fgid="12431"></span>
+<span data-linenumber="10" fgid="12439"></span></div><div class="code" fgid="12446">&lt;script type="text/javascript"&gt;
+
+  ...
+<span class="hljs-meta" fgid="12453">  $</span><span class="bash" fgid="12460">(<span class="hljs-string" fgid="12467">'#pd7 .row'</span>).load(loadURL + <span class="hljs-string" fgid="12475">'index_07.html'</span>);</span>
+<span class="hljs-meta" fgid="12484">  $</span><span class="bash" fgid="12491">(<span class="hljs-string" fgid="12498">'#pd8 .row'</span>).load(loadURL + <span class="hljs-string" fgid="12506">'index_08.html'</span>);</span>
+  //   ---- 新的版身 -----
+<span class="hljs-meta" fgid="12515">  $</span><span class="bash" fgid="12522">(<span class="hljs-string" fgid="12529">'#pd9 .row'</span>).load(loadURL + <span class="hljs-string" fgid="12537">'index_09.html'</span>);</span>
+
+&lt;/script&gt;
+
+</div></div></code></pre>
+    <h2 id="5index_0108版身內部" fgid="12323"><a class="anchor hidden-xs" href="#5index_0108版身內部" title="5index_0108版身內部" fgid="12329"><span class="octicon octicon-link" fgid="12335"></span></a>5.index_01~08版身內部</h2>
+    <h3 id="banner" fgid="12303"><a class="anchor hidden-xs" href="#banner" title="banner" fgid="12309"><span class="octicon octicon-link" fgid="12315"></span></a>banner</h3>
+    <p fgid="12281">banner區塊在html的<mark fgid="12288">row</mark>裡，可自行調整型為1張或2張<br fgid="12296">
+      範例: 1張</p>
+    <pre fgid="11911"><code class="htmlmixed hljs" fgid="11917"><div class="wrapper" fgid="11923"><div class="gutter linenumber" fgid="11929"><span data-linenumber="1" fgid="11935"></span>
+<span data-linenumber="2" fgid="11943"></span>
+<span data-linenumber="3" fgid="11951"></span>
+<span data-linenumber="4" fgid="11959"></span>
+<span data-linenumber="5" fgid="11967"></span>
+<span data-linenumber="6" fgid="11975"></span>
+<span data-linenumber="7" fgid="11983"></span></div><div class="code" fgid="11990"><span class="hljs-comment" fgid="11996">&lt;!-- iPhone 商品區 --&gt;</span>
+<span class="hljs-tag" fgid="12004">&lt;<span class="hljs-name" fgid="12011">div</span> <span class="hljs-attr" fgid="12019">class</span>=<span class="hljs-string" fgid="12027">"pd1 container"</span> <span class="hljs-attr" fgid="12035">id</span>=<span class="hljs-string" fgid="12043">"pd1"</span>&gt;</span>
+  <span class="hljs-tag" fgid="12052">&lt;<span class="hljs-name" fgid="12059">div</span> <span class="hljs-attr" fgid="12067">class</span>=<span class="hljs-string" fgid="12075">"row"</span>&gt;</span>
+    <span class="hljs-comment" fgid="12084">&lt;!-- banner --&gt;</span>
+    <span class="hljs-tag" fgid="12092">&lt;<span class="hljs-name" fgid="12099">div</span> <span class="hljs-attr" fgid="12107">class</span>=<span class="hljs-string" fgid="12115">"col-12"</span>&gt;</span><span class="hljs-tag" fgid="12123">&lt;<span class="hljs-name" fgid="12130">a</span> <span class="hljs-attr" fgid="12138">class</span>=<span class="hljs-string" fgid="12146">"pd__banner ga-bn"</span> <span class="hljs-attr" fgid="12154">href</span>=<span class="hljs-string" fgid="12162">""</span> <span class="hljs-attr" fgid="12170">target</span>=<span class="hljs-string" fgid="12178">"_blank"</span>&gt;</span><span class="hljs-tag" fgid="12186">&lt;<span class="hljs-name" fgid="12193">img</span> <span class="hljs-attr" fgid="12201">src</span>=<span class="hljs-string" fgid="12209">"img/iphone/banner01.jpg"</span>&gt;</span><span class="hljs-tag" fgid="12217">&lt;/<span class="hljs-name" fgid="12224">a</span>&gt;</span> <span class="hljs-tag" fgid="12233">&lt;/<span class="hljs-name" fgid="12240">div</span>&gt;</span>
+  <span class="hljs-tag" fgid="12249">&lt;/<span class="hljs-name" fgid="12256">div</span>&gt;</span>
+<span class="hljs-tag" fgid="12265">&lt;/<span class="hljs-name" fgid="12272">div</span>&gt;</span>
+</div></div></code></pre>
+    <p fgid="11896">範例: 2張且第二張為影片燈箱，影片燈箱除了要更換img外，還有a標籤裡的<mark fgid="11903">data-src</mark>，此為影片連結</p>
+    <pre fgid="11273"><code class="htmlmixed hljs" fgid="11279"><div class="wrapper" fgid="11285"><div class="gutter linenumber" fgid="11291"><span data-linenumber="1" fgid="11297"></span>
+<span data-linenumber="2" fgid="11305"></span>
+<span data-linenumber="3" fgid="11313"></span>
+<span data-linenumber="4" fgid="11321"></span>
+<span data-linenumber="5" fgid="11329"></span>
+<span data-linenumber="6" fgid="11337"></span>
+<span data-linenumber="7" fgid="11345"></span>
+<span data-linenumber="8" fgid="11353"></span>
+<span data-linenumber="9" fgid="11361"></span>
+<span data-linenumber="10" fgid="11369"></span>
+<span data-linenumber="11" fgid="11377"></span></div><div class="code" fgid="11384"><span class="hljs-tag" fgid="11390">&lt;<span class="hljs-name" fgid="11397">div</span> <span class="hljs-attr" fgid="11405">class</span>=<span class="hljs-string" fgid="11413">"row"</span>&gt;</span>
+  <span class="hljs-comment" fgid="11422">&lt;!-- 一般banner --&gt;</span>
+  <span class="hljs-tag" fgid="11430">&lt;<span class="hljs-name" fgid="11437">div</span> <span class="hljs-attr" fgid="11445">class</span>=<span class="hljs-string" fgid="11453">"col-12 col-md-6"</span>&gt;</span><span class="hljs-tag" fgid="11461">&lt;<span class="hljs-name" fgid="11468">a</span> <span class="hljs-attr" fgid="11476">class</span>=<span class="hljs-string" fgid="11484">"pd__banner ga-bn"</span> <span class="hljs-attr" fgid="11492">href</span>=<span class="hljs-string" fgid="11500">""</span> <span class="hljs-attr" fgid="11508">target</span>=<span class="hljs-string" fgid="11516">"_blank"</span>&gt;</span><span class="hljs-tag" fgid="11524">&lt;<span class="hljs-name" fgid="11531">img</span> <span class="hljs-attr" fgid="11539">src</span>=<span class="hljs-string" fgid="11547">"img/mac/banner01.jpg"</span>&gt;</span><span class="hljs-tag" fgid="11555">&lt;/<span class="hljs-name" fgid="11562">a</span>&gt;</span><span class="hljs-tag" fgid="11570">&lt;/<span class="hljs-name" fgid="11577">div</span>&gt;</span>
+  <span class="hljs-comment" fgid="11586">&lt;!-- 影片燈箱--&gt;</span>
+  <span class="hljs-tag" fgid="11594">&lt;<span class="hljs-name" fgid="11601">div</span> <span class="hljs-attr" fgid="11609">class</span>=<span class="hljs-string" fgid="11617">"col-12 col-md-6"</span>&gt;</span>
+    <span class="hljs-tag" fgid="11626">&lt;<span class="hljs-name" fgid="11633">a</span> <span class="hljs-attr" fgid="11641">class</span>=<span class="hljs-string" fgid="11649">"pd__video ga-bn"</span> <span class="hljs-attr" fgid="11657">href</span>=<span class="hljs-string" fgid="11665">"javascript:;"</span> <span class="hljs-attr" fgid="11673">data-toggle</span>=<span class="hljs-string" fgid="11681">"modal"</span> <span class="hljs-attr" fgid="11689">data-target</span>=<span class="hljs-string" fgid="11697">"#video"</span> <span class="hljs-attr" fgid="11705">data-src</span>=<span class="hljs-string" fgid="11713">"https://www.youtube.com/embed/oV6zzu7B2wA"</span>&gt;</span>
+      <span class="hljs-tag" fgid="11722">&lt;<span class="hljs-name" fgid="11729">div</span> <span class="hljs-attr" fgid="11737">class</span>=<span class="hljs-string" fgid="11745">"play"</span>&gt;</span><span class="hljs-tag" fgid="11753">&lt;<span class="hljs-name" fgid="11760">img</span> <span class="hljs-attr" fgid="11768">class</span>=<span class="hljs-string" fgid="11776">"play"</span> <span class="hljs-attr" fgid="11784">src</span>=<span class="hljs-string" fgid="11792">"img/play.svg"</span>&gt;</span><span class="hljs-tag" fgid="11800">&lt;/<span class="hljs-name" fgid="11807">div</span>&gt;</span>
+      <span class="hljs-tag" fgid="11816">&lt;<span class="hljs-name" fgid="11823">img</span> <span class="hljs-attr" fgid="11831">src</span>=<span class="hljs-string" fgid="11839">"img/mac/banner01.jpg"</span>&gt;</span>
+    <span class="hljs-tag" fgid="11848">&lt;/<span class="hljs-name" fgid="11855">a</span>&gt;</span>
+  <span class="hljs-tag" fgid="11864">&lt;/<span class="hljs-name" fgid="11871">div</span>&gt;</span>
+<span class="hljs-tag" fgid="11880">&lt;/<span class="hljs-name" fgid="11887">div</span>&gt;</span>
+</div></div></code></pre>
+    <h3 id="商品" fgid="11253"><a class="anchor hidden-xs" href="#商品" title="商品" fgid="11259"><span class="octicon octicon-link" fgid="11265"></span></a>商品</h3>
+    <p fgid="11246">版身商品資訊在下方js中</p>
+    <pre fgid="11081"><code class="htmlmixed hljs" fgid="11087"><div class="wrapper" fgid="11093"><div class="gutter linenumber" fgid="11099"><span data-linenumber="1" fgid="11105"></span>
+<span data-linenumber="2" fgid="11113"></span>
+<span data-linenumber="3" fgid="11121"></span>
+<span data-linenumber="4" fgid="11129"></span>
+<span data-linenumber="5" fgid="11137"></span>
+<span data-linenumber="6" fgid="11145"></span>
+<span data-linenumber="7" fgid="11153"></span>
+<span data-linenumber="8" fgid="11161"></span>
+<span data-linenumber="9" fgid="11169"></span>
+<span data-linenumber="10" fgid="11177"></span></div><div class="code" fgid="11184"><span class="hljs-keyword" fgid="11190">var</span> pd1Data = [{
+  link: <span class="hljs-string" fgid="11198">'javascript:;'</span>,
+  img: <span class="hljs-string" fgid="11206">'img/iphone/pd01.jpg'</span>,
+  title: <span class="hljs-string" fgid="11214">'限時下殺$401'</span>,
+  name: <span class="hljs-string" fgid="11222">'Apple iPhone 11 256G'</span>,
+  priceOld: <span class="hljs-number" fgid="11230">39900</span>,
+  priceNew: <span class="hljs-number" fgid="11238">37999</span>,
+},
+...
+]
+</div></div></code></pre>
+    <h2 id="6其餘次分頁" fgid="11061"><a class="anchor hidden-xs" href="#6其餘次分頁" title="6其餘次分頁" fgid="11067"><span class="octicon octicon-link" fgid="11073"></span></a>6.其餘次分頁</h2>
+    <ul fgid="11033">
+      <li fgid="11039">次分頁輪播<strong fgid="11046">無換檔</strong>，輪播及版身統一寫在html裡<br fgid="11054">
+        注意滿版大banner有桌手兩張圖</li>
+    </ul>
+    <pre fgid="10700"><code class="htmlmixed hljs" fgid="10706"><div class="wrapper" fgid="10712"><div class="gutter linenumber" fgid="10718"><span data-linenumber="1" fgid="10724"></span>
+<span data-linenumber="2" fgid="10732"></span>
+<span data-linenumber="3" fgid="10740"></span>
+<span data-linenumber="4" fgid="10748"></span>
+<span data-linenumber="5" fgid="10756"></span>
+<span data-linenumber="6" fgid="10764"></span>
+<span data-linenumber="7" fgid="10772"></span>
+<span data-linenumber="8" fgid="10780"></span></div><div class="code" fgid="10787"><span class="hljs-comment" fgid="10793">&lt;!----版身1 ----&gt;</span>
+<span class="hljs-tag" fgid="10801">&lt;<span class="hljs-name" fgid="10808">div</span> <span class="hljs-attr" fgid="10816">class</span>=<span class="hljs-string" fgid="10824">"pd pd--fluid"</span>&gt;</span>
+  <span class="hljs-tag" fgid="10833">&lt;<span class="hljs-name" fgid="10840">a</span> <span class="hljs-attr" fgid="10848">class</span>=<span class="hljs-string" fgid="10856">"pd__banner ga-bn"</span> <span class="hljs-attr" fgid="10864">href</span>=<span class="hljs-string" fgid="10872">""</span> <span class="hljs-attr" fgid="10880">target</span>=<span class="hljs-string" fgid="10888">"_blank"</span>&gt;</span>
+    <span class="hljs-tag" fgid="10897">&lt;<span class="hljs-name" fgid="10904">img</span> <span class="hljs-attr" fgid="10912">class</span>=<span class="hljs-string" fgid="10920">"pc"</span> <span class="hljs-attr" fgid="10928">src</span>=<span class="hljs-string" fgid="10936">"img_insurance/banner02.jpg"</span>&gt;</span>
+    <span class="hljs-tag" fgid="10945">&lt;<span class="hljs-name" fgid="10952">img</span> <span class="hljs-attr" fgid="10960">class</span>=<span class="hljs-string" fgid="10968">"mb"</span> <span class="hljs-attr" fgid="10976">src</span>=<span class="hljs-string" fgid="10984">"img_insurance/banner02_mb.jpg"</span>&gt;</span>
+  <span class="hljs-tag" fgid="10993">&lt;/<span class="hljs-name" fgid="11000">a</span>&gt;</span>
+<span class="hljs-tag" fgid="11009">&lt;/<span class="hljs-name" fgid="11016">div</span>&gt;</span>
+<span class="hljs-comment" fgid="11025">&lt;!----END 版身1 ----&gt;</span>
+</div></div></code></pre>
+  </div>
+  <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+    <div class="pull-right dropdown">
+      <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+        <i class="fa fa-bars"></i>
+      </a>
+      <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+        <div class="toc">
+          <ul class="nav">
+            <li class=""><a href="#Apple旗艦館說明文件2" title="Apple旗艦館說明文件2">Apple旗艦館說明文件2</a>
+              <ul class="nav">
+                <li><a href="#1架構" title="1.架構">1.架構</a></li>
+                <li class=""><a href="#2GA分布" title="2.GA分布">2.GA分布</a>
+                  <ul class="nav">
+                    <li class=""><a href="#命名規則非選單" title="命名規則(非選單)">命名規則(非選單)</a></li>
+                    <li class=""><a href="#命名規則選單" title="命名規則(選單)">命名規則(選單)</a></li>
+                    <li class=""><a href="#GA查尋" title="GA查尋">GA查尋</a></li>
+                  </ul>
+                </li>
+                <li class=""><a href="#3headerhtml" title="3.header.html">3.header.html</a>
+                  <ul class="nav">
+                    <li class=""><a href="#新增選單內的AD" title="新增選單內的AD">新增選單內的AD</a></li>
+                    <li class=""><a href="#右上方小輪播換檔下方JS" title="右上方小輪播換檔(下方JS)">右上方小輪播換檔(下方JS)</a></li>
+                  </ul>
+                </li>
+                <li class=""><a href="#4-indexhtml" title="4. index.html">4. index.html</a>
+                  <ul class="nav">
+                    <li class=""><a href="#主頁大-banner輪播" title="主頁大 banner輪播">主頁大 banner輪播</a></li>
+                    <li class=""><a href="#首頁四小區塊" title="首頁四小區塊">首頁四小區塊</a></li>
+                    <li class=""><a href="#版身" title="版身">版身</a></li>
+                  </ul>
+                </li>
+                <li><a href="#5index_0108版身內部" title="5.index_01~08版身內部">5.index_01~08版身內部</a>
+                  <ul class="nav">
+                    <li><a href="#banner" title="banner">banner</a></li>
+                    <li><a href="#商品" title="商品">商品</a></li>
+                  </ul>
+                </li>
+                <li><a href="#6其餘次分頁" title="6.其餘次分頁">6.其餘次分頁</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+      </ul>
+    </div>
+  </div>
+  <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+    <div class="toc" fgid="19513">
+      <ul class="nav" fgid="19519">
+        <li class="" fgid="19526"><a href="#Apple旗艦館說明文件2" title="Apple旗艦館說明文件2" fgid="19532">Apple旗艦館說明文件2</a>
+          <ul class="nav" fgid="19539">
+            <li class="" fgid="19546"><a href="#1架構" title="1.架構" fgid="19552">1.架構</a></li>
+            <li fgid="19559" class=""><a href="#2GA分布" title="2.GA分布" fgid="19565">2.GA分布</a>
+              <ul class="nav" fgid="19626">
+                <li class="" fgid="19633"><a href="#命名規則非選單" title="命名規則(非選單)" fgid="19639">命名規則(非選單)</a></li>
+                <li fgid="19646" class=""><a href="#命名規則選單" title="命名規則(選單)" fgid="19652">命名規則(選單)</a></li>
+                <li fgid="19659" class=""><a href="#GA查尋" title="GA查尋" fgid="19665">GA查尋</a></li>
+              </ul>
+            </li>
+            <li fgid="19572" class=""><a href="#3headerhtml" title="3.header.html" fgid="19578">3.header.html</a>
+              <ul class="nav" fgid="19673">
+                <li class="" fgid="19680"><a href="#新增選單內的AD" title="新增選單內的AD" fgid="19686">新增選單內的AD</a></li>
+                <li fgid="19693" class=""><a href="#右上方小輪播換檔下方JS" title="右上方小輪播換檔(下方JS)" fgid="19699">右上方小輪播換檔(下方JS)</a></li>
+              </ul>
+            </li>
+            <li fgid="19585" class=""><a href="#4-indexhtml" title="4. index.html" fgid="19591">4. index.html</a>
+              <ul class="nav" fgid="19707">
+                <li fgid="19714" class=""><a href="#主頁大-banner輪播" title="主頁大 banner輪播" fgid="19720">主頁大 banner輪播</a></li>
+                <li fgid="19727" class=""><a href="#首頁四小區塊" title="首頁四小區塊" fgid="19733">首頁四小區塊</a></li>
+                <li fgid="19740" class=""><a href="#版身" title="版身" fgid="19746">版身</a></li>
+              </ul>
+            </li>
+            <li fgid="19598"><a href="#5index_0108版身內部" title="5.index_01~08版身內部" fgid="19604">5.index_01~08版身內部</a>
+              <ul class="nav">
+                <li><a href="#banner" title="banner">banner</a></li>
+                <li><a href="#商品" title="商品">商品</a></li>
+              </ul>
+            </li>
+            <li fgid="19611"><a href="#6其餘次分頁" title="6.其餘次分頁" fgid="19617">6.其餘次分頁</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="toc-menu" fgid="19486"><a class="expand-toggle" href="#" fgid="19492">全部展開</a><a class="back-to-top" href="#" fgid="19499">回到頂部</a><a class="go-to-bottom" href="#" fgid="19506">移至底部</a></div>
+  </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/gist-embed.min.js"></script>
+  <script>
+    var markdown = $(".markdown-body");
+    //smooth all hash trigger scrolling
+    function smoothHashScroll() {
+      var hashElements = $("a[href^='#']").toArray();
+      for (var i = 0; i < hashElements.length; i++) {
+        var element = hashElements[i];
+        var $element = $(element);
+        var hash = element.hash;
+        if (hash) {
+          $element.on('click', function (e) {
+            // store hash
+            var hash = this.hash;
+            if ($(hash).length <= 0) return;
+            // prevent default anchor click behavior
+            e.preventDefault();
+            // animate
+            $('body, html').stop(true, true).animate({
+              scrollTop: $(hash).offset().top
+            }, 100, "linear", function () {
+              // when done, add hash to url
+              // (default click behaviour)
+              window.location.hash = hash;
+            });
+          });
+        }
+      }
+    }
+
+    smoothHashScroll();
+    var toc = $('.ui-toc');
+    var tocAffix = $('.ui-affix-toc');
+    var tocDropdown = $('.ui-toc-dropdown');
+    //toc
+    tocDropdown.click(function (e) {
+      e.stopPropagation();
+    });
+
+    var enoughForAffixToc = true;
+
+    function generateScrollspy() {
+      $(document.body).scrollspy({
+        target: ''
+      });
+      $(document.body).scrollspy('refresh');
+      if (enoughForAffixToc) {
+        toc.hide();
+        tocAffix.show();
+      } else {
+        tocAffix.hide();
+        toc.show();
+      }
+      $(document.body).scroll();
+    }
+
+    function windowResize() {
+      //toc right
+      var paddingRight = parseFloat(markdown.css('padding-right'));
+      var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+      toc.css('right', right + 'px');
+      //affix toc left
+      var newbool;
+      var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+      //for ipad or wider device
+      if (rightMargin >= 133) {
+        newbool = true;
+        var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+        var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+        tocAffix.css('left', left + 'px');
+      } else {
+        newbool = false;
+      }
+      if (newbool != enoughForAffixToc) {
+        enoughForAffixToc = newbool;
+        generateScrollspy();
+      }
+    }
+    $(window).resize(function () {
+      windowResize();
+    });
+    $(document).ready(function () {
+      windowResize();
+      generateScrollspy();
+    });
+
+    //remove hash
+    function removeHash() {
+      window.location.hash = '';
+    }
+
+    var backtotop = $('.back-to-top');
+    var gotobottom = $('.go-to-bottom');
+
+    backtotop.click(function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (scrollToTop)
+        scrollToTop();
+      removeHash();
+    });
+    gotobottom.click(function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (scrollToBottom)
+        scrollToBottom();
+      removeHash();
+    });
+
+    var toggle = $('.expand-toggle');
+    var tocExpand = false;
+
+    checkExpandToggle();
+    toggle.click(function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      tocExpand = !tocExpand;
+      checkExpandToggle();
+    })
+
+    function checkExpandToggle() {
+      var toc = $('.ui-toc-dropdown .toc');
+      var toggle = $('.expand-toggle');
+      if (!tocExpand) {
+        toc.removeClass('expand');
+        toggle.text('展開全部');
+      } else {
+        toc.addClass('expand');
+        toggle.text('關閉全部');
+      }
+    }
+
+    function scrollToTop() {
+      $('body, html').stop(true, true).animate({
+        scrollTop: 0
+      }, 100, "linear");
+    }
+
+    function scrollToBottom() {
+      $('body, html').stop(true, true).animate({
+        scrollTop: $(document.body)[0].scrollHeight
+      }, 100, "linear");
+    }
+  </script>
+</body>
+
+</html>
